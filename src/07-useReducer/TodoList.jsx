@@ -1,6 +1,7 @@
-import { TodoItem } from "./TodoItem";
+import TodoItem from "./TodoItem";
+import propTypes from "prop-types";
 
-export const TodoList = ({ todos = [], onDeleteTodo, onToggleTodo }) => {
+const TodoList = ({ todos = [], onDeleteTodo, onToggleTodo }) => {
   return (
     <ul className="list-group">
       {todos.map((todo) => (
@@ -14,3 +15,11 @@ export const TodoList = ({ todos = [], onDeleteTodo, onToggleTodo }) => {
     </ul>
   );
 };
+
+TodoList.propTypes = {
+  todos: propTypes.array.isRequired,
+  onDeleteTodo: propTypes.func.isRequired,
+  onToggleTodo: propTypes.func.isRequired,
+};
+
+export default TodoList;
