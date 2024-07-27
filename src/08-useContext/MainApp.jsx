@@ -1,7 +1,7 @@
 import { Navigate, Route, Routes, Link } from "react-router-dom";
 
 import { UserProvider } from "./context/UserProvider";
-import { HomePage } from "./HomePage";
+import HomePage from "./HomePage";
 import { AboutPage } from "./AboutPage";
 import { LoginPage } from "./LoginPage";
 import { Navbar } from "./Navbar";
