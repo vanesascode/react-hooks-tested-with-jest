@@ -1,7 +1,10 @@
-export const TodoItem = ({ todo, onDeleteTodo, onToggleTodo }) => {
+import propTypes from "prop-types";
+
+const TodoItem = ({ todo, onDeleteTodo, onToggleTodo }) => {
   return (
     <li className="list-group-item d-flex justify-content-between">
       <span
+        data-testid="span"
         className={`align-self-center ${
           todo.done ? "text-decoration-line-through" : ""
         }`}
@@ -15,3 +18,11 @@ export const TodoItem = ({ todo, onDeleteTodo, onToggleTodo }) => {
     </li>
   );
 };
+
+TodoItem.propTypes = {
+  todo: propTypes.object.isRequired,
+  onToggleTodo: propTypes.func.isRequired,
+  onDeleteTodo: propTypes.func.isRequired,
+};
+
+export default TodoItem;
