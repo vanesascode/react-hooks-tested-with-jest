@@ -1,8 +1,8 @@
 import { useTodos } from "../hooks";
 import { TodoAdd } from "./TodoAdd";
-import { TodoList } from "./TodoList";
+import TodoList from "./TodoList";
 
-export const TodoApp = () => {
+const TodoApp = () => {
   const {
     todos,
     todosCount,
@@ -15,25 +15,28 @@ export const TodoApp = () => {
   return (
     <>
       <h1>
-        TodoApp: {todosCount}, <small>pendientes: {pendingTodosCount}</small>{" "}
+        TodoApp: {todosCount ? todosCount : 0},{" "}
+        <small>pendientes: {pendingTodosCount ? pendingTodosCount : 0}</small>{" "}
       </h1>
       <hr />
 
       <div className="row">
         <div className="col-7">
           <TodoList
-            todos={todos}
-            onDeleteTodo={handleDeleteTodo}
-            onToggleTodo={handleToggleTodo}
+            todos={todos ? todos : []}
+            onDeleteTodo={handleDeleteTodo ? handleDeleteTodo : null}
+            onToggleTodo={handleToggleTodo ? handleToggleTodo : null}
           />
         </div>
 
         <div className="col-5">
           <h4>Agregar TODO</h4>
           <hr />
-          <TodoAdd onNewTodo={handleNewTodo} />
+          <TodoAdd onNewTodo={handleNewTodo ? handleNewTodo : null} />
         </div>
       </div>
     </>
   );
 };
+
+export default TodoApp;
